@@ -10,8 +10,15 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "iview": "^2.14.3",
+    "moment": "^2.23.0",
+    "super-vuex": "^1.0.16",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vuejs-storage": "^3.0.1",
+    "vuex": "^2.5.0",
+    "vuex-promise": "^2.0.0-rc.3"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

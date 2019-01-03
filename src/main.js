@@ -3,13 +3,20 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import iView from 'iview'
+import 'iview/dist/styles/iview.css'
+import store from './store/store'
+import moment from 'moment'
 
+Vue.use(iView);
+Vue.prototype.$moment=moment;
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
