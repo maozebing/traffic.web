@@ -1,49 +1,56 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>traffic.web</title>
-    <style>
-      html, body {
-        height: 100%;
-        color: #ffffff;
-        background-color: #0A0F23;
-        font-family: '微软雅黑' !important;
-        /*background-image: url("./static/images/bg.jpg");*/
-      }
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>traffic.web</title>
+  <style>
+    html, body {
+      height: 100%;
+      color: #ffffff;
+      background-color: #0A0F23;
+      font-family: '微软雅黑' !important;
+      /*background-image: url("./static/images/bg.jpg");*/
+    }
 
-      /*滚动条整体部分 start*/
-      ::-webkit-scrollbar {
-        width: 6px;
-        height: 6px;
-      }
+    /*滚动条整体部分 start*/
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
 
-      /*滚动条的轨道（里面装有Thumb） 内阴影+圆角*/
-      ::-webkit-scrollbar-track {
-        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-        background: #05253C;
-      }
+    /*滚动条的轨道（里面装有Thumb） 内阴影+圆角*/
+    ::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      background: #05253C;
+    }
 
-      /* 滚动条里面的小方块，能向上向下移动（或往左往右移动，取决于是垂直滚动条还是水平滚动条）定义滑块 内阴影+圆角*/
-      ::-webkit-scrollbar-thumb {
-        /*border-radius: 3px;*/
-        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-        background-color: rgba(7, 170, 247, 0.7);
-      }
+    /* 滚动条里面的小方块，能向上向下移动（或往左往右移动，取决于是垂直滚动条还是水平滚动条）定义滑块 内阴影+圆角*/
+    ::-webkit-scrollbar-thumb {
+      /*border-radius: 3px;*/
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+      background-color: rgba(7, 170, 247, 0.7);
+    }
 
-      ::-webkit-scrollbar-thumb:hover {
-        /*border-radius: 3px;*/
-        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-        background-color: rgba(7, 170, 247, 1);
-      }
-    </style>
-    <script>
-      window.axiosBaseURL = 'http://app.gstscc.cn:9011/api/';
-    </script>
-  </head>
-  <body>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+    ::-webkit-scrollbar-thumb:hover {
+      /*border-radius: 3px;*/
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+      background-color: rgba(7, 170, 247, 1);
+    }
+  </style>
+  <script>
+    window.axiosBaseURL = 'http://app.gstscc.cn:9011/api/';
+    window.mapCenter = [100.79957, 37.243287];
+    window.mapZooms = [6, 20];
+    window.mapZoom = 7;
+    window.mapStyle = 'amap://styles/b4e93d424ca177796fb657958e63bb2e';
+    window.mapArea = 620000;
+  </script>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.4&key=2105e54507140bc7eeebb6db77737a69"></script>
+<script src="//webapi.amap.com/ui/1.0/main.js?v=1.0.11"></script>
+<!-- built files will be auto injected -->
+</body>
 </html>
