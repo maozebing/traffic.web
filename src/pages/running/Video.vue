@@ -4,6 +4,7 @@
       <Tab-pane label="视频列表">
 
       </Tab-pane>
+      <Button @click="" size="small" slot="extra">折叠</Button>
     </Tabs>
   </div>
 </template>
@@ -62,5 +63,10 @@
 
   .ivu-tabs-nav-container:focus .ivu-tabs-tab-focused {
     /*border-color: #57a3f3!important;*/
+  }
+  .ivu-tabs-nav-right {
+    float: right;
+    margin-left: 5px;
+    margin-top: 3px;
   }
 </style>
