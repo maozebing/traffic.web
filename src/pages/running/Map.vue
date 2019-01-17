@@ -34,8 +34,8 @@
         mapHelper.addTrafficLayer(map);
 
         //设置甘肃省边界
-        let area = window.mapArea;
-        mapHelper.selectArea(map, area);
+        //let area = window.mapArea;
+        //mapHelper.selectArea(map, area);
       }
     },
     //生命周期钩子函数

@@ -6,7 +6,16 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  mounted() {
+    this.$nextTick(() => {
+      window.onresize = () => {
+        return (() => {
+          this.$root.$emit('fullScreen');
+        })()
+      }
+    })
+  }
 }
 </script>
 
