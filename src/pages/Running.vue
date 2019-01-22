@@ -5,6 +5,7 @@
       <Resource></Resource>
       <Details></Details>
       <Video></Video>
+      <Legend></Legend>
       <Map></Map>
     </div>
   </div>
@@ -15,10 +16,11 @@
   import Resource from './running/Resource.vue'
   import Video from './running/Video.vue'
   import Details from './running/Details.vue'
+  import Legend from './running/Legend.vue'
 
   export default {
     components: {
-      Head, Map, Resource, Video,Details
+      Head, Map, Resource, Video, Details, Legend
     },
     data() {
       return {}
