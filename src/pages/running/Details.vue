@@ -1,10 +1,10 @@
 <template>
-  <div class="details">
+  <div class="details" v-show="showDetails">
     <Tabs type="card">
       <Tab-pane label="突发事件">
 
       </Tab-pane>
-      <Button @click="" size="small" slot="extra">折叠</Button>
+      <Button @click="showDetails=false" size="small" slot="extra">折叠</Button>
     </Tabs>
   </div>
 </template>
@@ -13,12 +13,10 @@
     components: {},
     data() {
       return {
-        contentHeight: 0
+        showDetails: true
       }
     },
-    methods: {
-
-    },
+    methods: {},
     mounted: function () {
 
     },
@@ -38,6 +36,7 @@
     background-color: rgba(255, 255, 255, 0.8);
     z-index: 10000;
   }
+
   .ivu-tabs-nav-right {
     float: right;
     margin-left: 5px;
