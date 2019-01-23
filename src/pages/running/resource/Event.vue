@@ -1,132 +1,84 @@
 <template>
   <div class="event" :style="{height: contentHeight+'px'}">
-    <div class="event-content">
-      <div class="g-high-road">
-        国家高速
+    <div class="event-content" v-for="(item ,index) in eventData"
+         :style="{'marginTop': index==0?'0px':'10px'}">
+      <div v-if="item.sourceType==1" class="g-high-road">
+        {{item.highSpeedType}}
+      </div>
+      <div v-else-if="item.sourceType==2" class="s-high-road">
+        {{item.highSpeedType}}
+      </div>
+      <div v-else="" class="g-road">
+        {{item.highSpeedType}}
       </div>
       <div class="content">
         <div class="content-title">
           <div class="content-title-body">
-            G30连霍高速K1698+100
+            {{item.roadoldid}}{{item.roadName}}
           </div>
           <div class="content-title-time">
-            08:35
+            {{item.occtime}}
           </div>
         </div>
         <div class="content-remark">
-          连霍高速-柳河沟至树屏立交段 往机场
-        </div>
-      </div>
-    </div>
-    <div class="event-content margin-top">
-      <div class="g-high-road">
-        国家高速
-      </div>
-      <div class="content">
-        <div class="content-title">
-          <div class="content-title-body">
-            G30连霍高速K1698+100
-          </div>
-          <div class="content-title-time">
-            08:35
-          </div>
-        </div>
-        <div class="content-remark">
-          连霍高速-柳河沟至树屏立交段 往机场
-        </div>
-      </div>
-    </div>
-    <div class="event-content margin-top">
-      <div class="g-high-road">
-        国家高速
-      </div>
-      <div class="content">
-        <div class="content-title">
-          <div class="content-title-body">
-            G30连霍高速K1698+100
-          </div>
-          <div class="content-title-time">
-            08:35
-          </div>
-        </div>
-        <div class="content-remark">
-          连霍高速-柳河沟至树屏立交段 往机场
-        </div>
-      </div>
-    </div>
-    <div class="event-content margin-top">
-      <div class="s-high-road">
-        省级高速
-      </div>
-      <div class="content">
-        <div class="content-title">
-          <div class="content-title-body">
-            S1兰营高速K461+200
-          </div>
-          <div class="content-title-time">
-            08:35
-          </div>
-        </div>
-        <div class="content-remark">
-          武都区透房村
-        </div>
-      </div>
-    </div>
-    <div class="event-content margin-top">
-      <div class="g-road">
-        国省干线
-      </div>
-      <div class="content">
-        <div class="content-title">
-          <div class="content-title-body">
-            G212兰渝线K461+200
-          </div>
-          <div class="content-title-time">
-            08:35
-          </div>
-        </div>
-        <div class="content-remark">
-          武都区透房村
-        </div>
-      </div>
-    </div>
-    <div class="event-content margin-top">
-      <div class="g-road">
-        国省干线
-      </div>
-      <div class="content">
-        <div class="content-title">
-          <div class="content-title-body">
-            G212兰渝线K461+200
-          </div>
-          <div class="content-title-time">
-            08:35
-          </div>
-        </div>
-        <div class="content-remark">
-          武都区透房村
+          {{item.highSpeedName}}
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+  import Bus from '../../../bus/bus'
+
   export default {
     components: {},
     data() {
       return {
-        contentHeight: 0
+        contentHeight: 0,
+        eventData: []
       }
     },
     methods: {
       refreshTabPannelHeight() {
-        this.contentHeight = this.$parent.$parent.$el.offsetHeight-52;
+        this.contentHeight = this.$parent.$parent.$el.offsetHeight - 52;
+      },
+      initData() {
+        this.eventData = [
+          {
+            sourceType: 1,
+            highSpeedType: '国家高速',
+            roadoldid: 'G22',
+            roadName: '青兰高速',
+            endstake: 1872,
+            highSpeedName: '青兰高速-柳沟河至树屏立交段    往兰州站',
+            occtime: '11:50',
+            longitude: "103.92375500000000000",
+            latitude: "36.05121100000000000"
+          },
+          {
+            sourceType: 1,
+            highSpeedType: '国家高速',
+            roadoldid: 'G2012',
+            roadName: '定武高速',
+            endstake: 323,
+            highSpeedName: '定武高速-营盘水至双塔段    往双塔',
+            occtime: '15:51',
+            longitude: "104.29644500000000000",
+            latitude: "37.42427700000000000"
+          }
+        ];
+        let params = {
+          layerType: this.$constant.LAYER_TYPE.突发事件,
+          data: this.eventData
+        }
+        Bus.$emit("running_resource_marker_add", params);
       }
     },
     mounted: function () {
       this.$root.$on('fullScreen', this.refreshTabPannelHeight);
       this.$nextTick(() => {
-        this.refreshTabPannelHeight()
+        this.refreshTabPannelHeight();
+        this.initData()
       });
     },
     beforeDestroy() {

@@ -7,9 +7,11 @@ import iView from 'iview'
 import 'iview/dist/styles/iview.css'
 import store from './store/store'
 import moment from 'moment'
+import constant from './common/constant/constant'
 
 Vue.use(iView);
 Vue.prototype.$moment=moment;
+Vue.prototype.$constant = constant;
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

@@ -6,6 +6,7 @@
 </template>
 <script type="text/ecmascript-6">
   import MapUtil from "../../common/utils/amap-util";
+  import Bus from '../../bus/bus'
 
   let mapHelper = new MapUtil();
   let map;
@@ -40,6 +41,7 @@
     },
     //生命周期钩子函数
     mounted() {
+      Bus.$on("running_resource_marker_add", this.addMarkers);
       this.$nextTick(() => {
         //初始化地图
         this.initMap();
