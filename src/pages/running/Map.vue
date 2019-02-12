@@ -17,9 +17,13 @@
     data() {
       return {
         mapHeight: document.body.clientHeight,
+        selectedMarker: null
       }
     },
     methods: {
+      refreshHeight() {
+        this.mapHeight = document.body.clientHeight;
+      },
       //初始化地图
       initMap() {
         //地图对象
@@ -73,19 +77,40 @@
         } else {
           mapHelper.setZoomAndCenter(map, window.mapZoom, window.mapCenter);
         }
+        if (this.selectedMarker != null) {
+          mapHelper.removeAnimation(this.selectedMarker);
+        }
+        planLayer.eachOverlay(marker => {
+          if (marker.getExtData().id === data.id) {
+            mapHelper.addAnimation(marker)
+            this.selectedMarker = marker;
+            return
+          }
+        });
+      },
+      //详细面板关闭事件
+      detailsClose() {
+        if (this.selectedMarker != null) {
+          mapHelper.removeAnimation(this.selectedMarker);
+        }
       }
     },
     //生命周期钩子函数
     mounted() {
+      this.$root.$on('fullScreen', this.refreshHeight);
       Bus.$on("running_resource_marker_add", this.addMarkers);
       Bus.$on("running_resource_marker_click", this.resourceClick);
+      Bus.$on("running_details_close", this.detailsClose);
       this.$nextTick(() => {
         //初始化地图
         this.initMap();
       })
     },
     beforeDestroy() {
-
+      this.$root.$off('fullScreen');
+      Bus.$off("running_resource_marker_add");
+      Bus.$off("running_resource_marker_click");
+      Bus.$off("running_details_close");
     }
   }
 </script>

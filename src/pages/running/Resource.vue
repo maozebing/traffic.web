@@ -4,7 +4,9 @@
       <Tab-pane label="突发事件" class="resource-card">
         <Event></Event>
       </Tab-pane>
-      <Tab-pane label="道路施工">标签二的内容</Tab-pane>
+      <Tab-pane label="道路施工">
+        <Plan></Plan>
+      </Tab-pane>
       <Tab-pane label="整点路况">标签三的内容</Tab-pane>
       <Tab-pane label="预警信息">标签三的内容</Tab-pane>
     </Tabs>
@@ -12,10 +14,11 @@
 </template>
 <script>
   import Event from './resource/Event.vue'
+  import Plan from './resource/Plan.vue'
 
   export default {
     components: {
-      Event
+      Event, Plan
     },
     data() {
       return {}
@@ -39,7 +42,8 @@
     background-color: rgba(255, 255, 255, 0.8);
     z-index: 10000;
   }
-  .resource-card{
+
+  .resource-card {
     height: calc(100%);
   }
 

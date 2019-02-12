@@ -99,8 +99,24 @@ class MapUtil {
    * @param zoom
    * @param center
    */
-  setZoomAndCenter(map,zoom,center){
+  setZoomAndCenter(map, zoom, center) {
     map.setZoomAndCenter(zoom, center); //同时设置地图层级与中心点
+  }
+
+  /**
+   * 添加动画效果
+   * @param marker
+   */
+  addAnimation(marker) {
+    marker.setAnimation('AMAP_ANIMATION_BOUNCE');
+  }
+
+  /**
+   * 删除动画效果
+   * @param marker
+   */
+  removeAnimation(marker) {
+    marker.setAnimation('AMAP_ANIMATION_NONE');
   }
 
   /**

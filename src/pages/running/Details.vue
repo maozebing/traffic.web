@@ -20,7 +20,7 @@
         </div>
 
       </Tab-pane>
-      <Button @click="showDetails=false" size="small" slot="extra">收起</Button>
+      <Button @click="closeClick" size="small" slot="extra">收起</Button>
     </Tabs>
   </div>
 </template>
@@ -61,13 +61,17 @@
 
         //赋值
         _this.detailsData = params.data;
+      },
+      closeClick() {
+        this.showDetails = false;
+        Bus.$emit("running_details_close");
       }
     },
     mounted: function () {
       Bus.$on("running_resource_marker_click", this.resourceClick);
     },
     beforeDestroy() {
-
+      Bus.$off("running_resource_marker_click");
     }
   }
 </script>
