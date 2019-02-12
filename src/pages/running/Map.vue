@@ -72,6 +72,15 @@
       //资源点击事件
       resourceClick(item) {
         let data = item.data;
+        let layer;
+        if (item.type == this.$constant.LAYER_TYPE.突发事件) {
+          layer = eventLayer;
+        } else if (item.type == this.$constant.LAYER_TYPE.道路施工) {
+          layer = planLayer;
+        } else {
+          return
+        }
+
         if (data.longitude != null && data.latitude != null) {
           mapHelper.setZoomAndCenter(map, window.mapMarkerZoom, [data.longitude, data.latitude]);
         } else {
@@ -80,7 +89,7 @@
         if (this.selectedMarker != null) {
           mapHelper.removeAnimation(this.selectedMarker);
         }
-        planLayer.eachOverlay(marker => {
+        layer.eachOverlay(marker => {
           if (marker.getExtData().id === data.id) {
             mapHelper.addAnimation(marker)
             this.selectedMarker = marker;
@@ -92,6 +101,7 @@
       detailsClose() {
         if (this.selectedMarker != null) {
           mapHelper.removeAnimation(this.selectedMarker);
+          mapHelper.setZoomAndCenter(map, window.mapZoom, window.mapCenter);
         }
       }
     },

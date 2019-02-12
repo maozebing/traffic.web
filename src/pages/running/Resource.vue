@@ -7,18 +7,24 @@
       <Tab-pane label="道路施工">
         <Plan></Plan>
       </Tab-pane>
-      <Tab-pane label="整点路况">标签三的内容</Tab-pane>
-      <Tab-pane label="预警信息">标签三的内容</Tab-pane>
+      <Tab-pane label="整点路况">
+        <Tmc></Tmc>
+      </Tab-pane>
+      <Tab-pane label="预警信息">
+        <Warning></Warning>
+      </Tab-pane>
     </Tabs>
   </div>
 </template>
 <script>
   import Event from './resource/Event.vue'
   import Plan from './resource/Plan.vue'
+  import Tmc from './resource/Tmc.vue'
+  import Warning from './resource/Warning.vue'
 
   export default {
     components: {
-      Event, Plan
+      Event, Plan, Tmc, Warning
     },
     data() {
       return {}

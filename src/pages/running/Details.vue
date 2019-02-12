@@ -51,6 +51,10 @@
             this.tabLabel = "突发事件";
           case _this.$constant.LAYER_TYPE.道路施工:
             this.tabLabel = "道路施工";
+          case _this.$constant.LAYER_TYPE.整点路况:
+            this.tabLabel = "整点路况";
+          case _this.$constant.LAYER_TYPE.预警信息:
+            this.tabLabel = "预警信息";
           default:
             this.tabLabel = "突发事件"
         }
