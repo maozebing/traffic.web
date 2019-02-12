@@ -1,11 +1,12 @@
 <template>
   <div class="event" :style="{height: contentHeight+'px'}">
     <div class="event-content" v-for="(item ,index) in eventData"
-         :style="{'marginTop': index==0?'0px':'10px'}">
-      <div v-if="item.sourceType==1" class="g-high-road">
+         :style="{'marginTop': index==0?'0px':'10px'}"
+          @click="eventClick(item)">
+      <div v-if="item.highSpeedType=='国家高速'" class="g-high-road">
         {{item.highSpeedType}}
       </div>
-      <div v-else-if="item.sourceType==2" class="s-high-road">
+      <div v-else-if="item.sourceType=='省级高速'" class="s-high-road">
         {{item.highSpeedType}}
       </div>
       <div v-else="" class="g-road">
@@ -17,7 +18,7 @@
             {{item.roadoldid}}{{item.roadName}}
           </div>
           <div class="content-title-time">
-            {{item.occtime}}
+            {{item.time}}
           </div>
         </div>
         <div class="content-remark">
@@ -29,6 +30,7 @@
 </template>
 <script>
   import Bus from '../../../bus/bus'
+  import {api_getBursts} from '../../../axios/api/traffic_api'
 
   export default {
     components: {},
@@ -43,35 +45,39 @@
         this.contentHeight = this.$parent.$parent.$el.offsetHeight - 52;
       },
       initData() {
-        this.eventData = [
-          {
-            sourceType: 1,
-            highSpeedType: '国家高速',
-            roadoldid: 'G22',
-            roadName: '青兰高速',
-            endstake: 1872,
-            highSpeedName: '青兰高速-柳沟河至树屏立交段    往兰州站',
-            occtime: '11:50',
-            longitude: "103.92375500000000000",
-            latitude: "36.05121100000000000"
-          },
-          {
-            sourceType: 1,
-            highSpeedType: '国家高速',
-            roadoldid: 'G2012',
-            roadName: '定武高速',
-            endstake: 323,
-            highSpeedName: '定武高速-营盘水至双塔段    往双塔',
-            occtime: '15:51',
-            longitude: "104.29644500000000000",
-            latitude: "37.42427700000000000"
-          }
-        ];
-        let params = {
+        api_getBursts({}).then(res => {
+          //格式化时间
+          res.data.forEach(v => {
+            if (new Date(v.occtime) >= this.$moment(new Date()).startOf('day')) {
+              v.time = this.$moment(new Date(v.occtime)).format("hh:mm")
+            } else if (new Date(v.occtime) >= this.$moment(new Date()).subtract(1, 'days').startOf('day')) {
+              v.time = '昨天'
+            } else if (new Date(v.occtime) >= this.$moment(new Date()).subtract(2, 'days').startOf('day')) {
+              v.time = '前天'
+            } else {
+              v.time = '更早'
+            }
+          });
+          //时间排序
+          res.data.sort(function (a, b) {
+            return new Date(a.occtime) < new Date(b.occtime) ? 1 : -1;
+          });
+          //赋值
+          this.eventData = res.data;
+        }).catch(err => {});
+
+        /*let params = {
           layerType: this.$constant.LAYER_TYPE.突发事件,
           data: this.eventData
         }
-        Bus.$emit("running_resource_marker_add", params);
+        Bus.$emit("running_resource_marker_add", params);*/
+      },
+      eventClick(item){
+        let params = {
+          type: this.$constant.LAYER_TYPE.突发事件,
+          data: item
+        };
+        Bus.$emit("running_resource_marker_click", params);
       }
     },
     mounted: function () {
