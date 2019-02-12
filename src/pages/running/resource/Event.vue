@@ -2,7 +2,7 @@
   <div class="event" :style="{height: contentHeight+'px'}">
     <div class="event-content" v-for="(item ,index) in eventData"
          :style="{'marginTop': index==0?'0px':'10px'}"
-          @click="eventClick(item)">
+         @click="eventClick(item)">
       <div v-if="item.highSpeedType=='国家高速'" class="g-high-road">
         {{item.highSpeedType}}
       </div>
@@ -49,7 +49,7 @@
           //格式化时间
           res.data.forEach(v => {
             if (new Date(v.occtime) >= this.$moment(new Date()).startOf('day')) {
-              v.time = this.$moment(new Date(v.occtime)).format("hh:mm")
+              v.time = this.$moment(new Date(v.occtime)).format("HH:mm")
             } else if (new Date(v.occtime) >= this.$moment(new Date()).subtract(1, 'days').startOf('day')) {
               v.time = '昨天'
             } else if (new Date(v.occtime) >= this.$moment(new Date()).subtract(2, 'days').startOf('day')) {
@@ -64,15 +64,17 @@
           });
           //赋值
           this.eventData = res.data;
-        }).catch(err => {});
 
-        /*let params = {
-          layerType: this.$constant.LAYER_TYPE.突发事件,
-          data: this.eventData
-        }
-        Bus.$emit("running_resource_marker_add", params);*/
+          //通知地图标注事件位置
+          let params = {
+            type: this.$constant.LAYER_TYPE.突发事件,
+            data: this.eventData
+          };
+          Bus.$emit("running_resource_marker_add", params);
+        }).catch(err => {
+        });
       },
-      eventClick(item){
+      eventClick(item) {
         let params = {
           type: this.$constant.LAYER_TYPE.突发事件,
           data: item

@@ -20,7 +20,7 @@
         </div>
 
       </Tab-pane>
-      <Button @click="showDetails=false" size="small" slot="extra">折叠</Button>
+      <Button @click="showDetails=false" size="small" slot="extra">收起</Button>
     </Tabs>
   </div>
 </template>

@@ -55,6 +55,55 @@ class MapUtil {
   }
 
   /**
+   * 添加图层
+   * @param map
+   * @returns {AMap.OverlayGroup}
+   */
+  addLayer(map) {
+    let layer = new AMap.OverlayGroup();
+    layer.enabled = true;
+    layer.setMap(map);
+    return layer;
+  }
+
+  /**
+   * 创建标记点
+   * @param longitude
+   * @param latitude
+   * @param image
+   * @param data
+   * @returns {AMap.Marker}
+   */
+  createMarker(longitude, latitude, image, data) {
+    let marker = new AMap.Marker({
+      zIndex: 9999,
+      position: [longitude, latitude],
+      icon: image,
+      extData: data
+    });
+    return marker;
+  }
+
+  /**
+   * 图层添加数据
+   * @param layer
+   * @param markers
+   */
+  addMarkers(layer, markers) {
+    layer.addOverlays(markers);
+  }
+
+  /**
+   * 设置地图层级和中心点
+   * @param map
+   * @param zoom
+   * @param center
+   */
+  setZoomAndCenter(map,zoom,center){
+    map.setZoomAndCenter(zoom, center); //同时设置地图层级与中心点
+  }
+
+  /**
    * 选中行政区划
    * @param map 地图对象
    * @param area 行政区划编码

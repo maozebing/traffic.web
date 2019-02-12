@@ -6,7 +6,7 @@
         <Tab-pane label="视频列表">
 
         </Tab-pane>
-        <Button @click="showVideoList=false" size="small" slot="extra">折叠</Button>
+        <Button @click="showVideoList=false" size="small" slot="extra">收起</Button>
       </Tabs>
     </div>
   </div>
@@ -17,7 +17,7 @@
     components: {},
     data() {
       return {
-        showVideoList: true
+        showVideoList: false
       }
     },
     methods: {},
