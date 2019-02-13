@@ -1,5 +1,5 @@
 <template>
-  <div class="tmc" :style="{height: contentHeight+'px'}">
+  <div class="resource-page" :style="{height: contentHeight+'px'}">
     <div class="item-card" v-for="(item ,index) in tmcData"
          :style="{'marginTop': index==0?'0px':'10px'}"
          @click="tmcClick(item)">
@@ -88,11 +88,5 @@
   }
 </script>
 <style scoped>
-  @import url("../../../assets/css/item-card.css");
-
-  .tmc {
-    padding: 0px 5px 0px 5px;
-    height: calc(100%);
-    overflow-y: auto;
-  }
+  @import url("../../../assets/css/resource.css");
 </style>
