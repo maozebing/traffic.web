@@ -5,9 +5,9 @@
       <Tabs type="card" class="video-list-card">
         <Tab-pane label="视频列表" class="video-list-card">
           <div class="video-list-content" :style="{height: contentHeight+'px'}">
-            <div style="position:relative" v-for="item in videoData">
+            <div style="position:relative" v-for="item in videoData" @click="playVideo(item)">
               <img style="width: 280px;height: 150px" :src="item.videoPicture"/>
-              <img class="video-list-content-play" src="../../../static/images/play.png" @click="playVideo(item)"/>
+              <img class="video-list-content-play" src="../../../static/images/play.png"/>
               <div class="video-list-content-title">{{item.name}}</div>
             </div>
           </div>
@@ -15,6 +15,19 @@
         <Button @click="showVideoList=false" size="small" slot="extra">收起</Button>
       </Tabs>
     </div>
+    <Modal
+      v-model="videoModal"
+      title="路况直播"
+      footer-hide
+      transfer>
+      <div>
+        <p>{{vidwoSelected.name}}</p>
+        <video :src="vidwoSelected.videoUri" width="100%" height="300" controls>
+          <!--<source src="https://gslwzxbucket.oss-cn-beijing.aliyuncs.com/news/video/20190212102221111111.mp4" type="video/mp4">-->
+          <!--<source :src="vidwoSelected.videoUri" type="video/mp4">-->
+        </video>
+      </div>
+    </Modal>
   </div>
 </template>
 <script>
@@ -26,7 +39,9 @@
       return {
         contentHeight: 0,
         showVideoList: false,
-        videoData: []
+        videoData: [],
+        videoModal: false,
+        vidwoSelected: {}
       }
     },
     methods: {
@@ -60,6 +75,8 @@
       },
       playVideo(item) {
         console.log(item)
+        this.videoModal = true;
+        this.vidwoSelected = item;
       }
     },
     mounted: function () {
@@ -94,7 +111,7 @@
     right: 0px;
     top: 50px;
     background-color: rgba(255, 255, 255, 0.8);
-    z-index: 10000;
+    z-index: 999;
   }
 
   .video .video-list-card {

@@ -91,7 +91,7 @@
     left: 378px;
     top: 50px;
     background-color: rgba(255, 255, 255, 0.8);
-    z-index: 10000;
+    z-index: 999;
   }
 
   .legend .legend-title {
