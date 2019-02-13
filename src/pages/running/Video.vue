@@ -1,6 +1,6 @@
 <template>
   <div class="video">
-    <div class="video-control-button" v-show="!showVideoList" @click="showVideoList=true"></div>
+    <div class="video-control-button" title="视频列表" v-show="!showVideoList" @click="showVideoList=true"></div>
     <div class="video-list" v-show="showVideoList">
       <Tabs type="card" class="video-list-card">
         <Tab-pane label="视频列表" class="video-list-card">
@@ -97,7 +97,7 @@
     position: absolute;
     right: 5px;
     top: 50px;
-    background-image: url("../../../static/images/btn_lukuang.png");
+    background-image: url("../../../static/images/btn_vedio.png");
   }
 
   .video .video-list {
