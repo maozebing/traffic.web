@@ -5,8 +5,8 @@
       <Tabs type="card" class="video-list-card">
         <Tab-pane label="视频列表" class="video-list-card">
           <div class="video-list-content" :style="{height: contentHeight+'px'}">
-            <div style="position:relative" v-for="item in videoData" @click="playVideo(item)">
-              <img style="width: 280px;height: 150px" :src="item.videoPicture"/>
+            <div class="video-list-content-body" v-for="item in videoData" @click="playVideo(item)">
+              <img class="video-list-content-img" :src="item.videoPicture"/>
               <img class="video-list-content-play" src="../../../static/images/play.png"/>
               <div class="video-list-content-title">{{item.name}}</div>
             </div>
@@ -21,7 +21,7 @@
       footer-hide
       transfer>
       <div>
-        <p>{{vidwoSelected.name}}</p>
+        <p class="video-list-modal-font">{{vidwoSelected.name}}</p>
         <video :src="vidwoSelected.videoUri" width="100%" height="300" controls>
           <!--<source src="https://gslwzxbucket.oss-cn-beijing.aliyuncs.com/news/video/20190212102221111111.mp4" type="video/mp4">-->
           <!--<source :src="vidwoSelected.videoUri" type="video/mp4">-->
@@ -124,6 +124,16 @@
     overflow-y: auto;
   }
 
+  .video .video-list-content-body {
+    position: relative;
+    margin-bottom: 5px
+  }
+
+  .video .video-list-content-img {
+    width: 280px;
+    height: 150px
+  }
+
   .video .video-list-content-play {
     width: 64px;
     height: 64px;
@@ -140,6 +150,10 @@
     position: absolute;
     bottom: 5px;
     left: 5px;
+  }
+
+ .video-list-modal-font {
+    font-size: 14px;
   }
 
 </style>
