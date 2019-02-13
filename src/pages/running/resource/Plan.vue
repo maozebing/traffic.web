@@ -54,11 +54,11 @@
         api_getPlans({}).then(res => {
           //格式化时间
           res.data.forEach(v => {
-            if (new Date(v.occtime) >= this.$moment(new Date()).startOf('day')) {
-              v.time = this.$moment(new Date(v.occtime)).format("HH:mm")
-            } else if (new Date(v.occtime) >= this.$moment(new Date()).subtract(1, 'days').startOf('day')) {
+            if (this.$moment(v.occtime) >= this.$moment().startOf('day')) {
+              v.time = this.$moment(v.occtime).format("HH:mm")
+            } else if (this.$moment(v.occtime) >= this.$moment().subtract(1, 'days').startOf('day')) {
               v.time = '昨天'
-            } else if (new Date(v.occtime) >= this.$moment(new Date()).subtract(2, 'days').startOf('day')) {
+            } else if (this.$moment(v.occtime) >= this.$moment().subtract(2, 'days').startOf('day')) {
               v.time = '前天'
             } else {
               v.time = '更早'
