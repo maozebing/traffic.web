@@ -12,9 +12,9 @@
     height: 40px;
     z-index: 10000;
     background-color: rgba(255, 255, 255, 0.8);
-    box-shadow: 0px 4px 4px #88888860; /*opera或ie9*/
-    -moz-box-shadow: 0px 4px 4px #88888860; /*firefox*/
-    -webkit-box-shadow: 0px 4px 4px #88888860; /*webkit*/
+    box-shadow: 0px 4px 4px #969696; /*opera或ie9*/
+    -moz-box-shadow: 0px 4px 4px #969696; /*firefox*/
+    -webkit-box-shadow: 0px 4px 4px #969696; /*webkit*/
     /*display: flex;
     float: left;
     justify-content: center;
