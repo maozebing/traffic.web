@@ -89,70 +89,7 @@
   }
 </script>
 <style scoped>
-  .video .video-control-button {
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
-    z-index: 10000;
-    position: absolute;
-    right: 5px;
-    top: 50px;
-    background-image: url("../../../static/images/btn_vedio.png");
-  }
-
-  .video .video-list {
-    width: 300px;
-    height: calc(100% - 50px);
-    position: absolute;
-    cursor: pointer;
-    right: 0px;
-    top: 50px;
-    background-color: rgba(255, 255, 255, 0.8);
-    z-index: 999;
-  }
-
-  .video .video-list-card {
-    height: calc(100%);
-  }
-
-  .video .video-list-content {
-    padding: 0px 5px 0px 5px;
-    height: calc(100%);
-    overflow-y: auto;
-  }
-
-  .video .video-list-content-body {
-    position: relative;
-    margin-bottom: 5px
-  }
-
-  .video .video-list-content-img {
-    width: 280px;
-    height: 150px
-  }
-
-  .video .video-list-content-play {
-    width: 64px;
-    height: 64px;
-    position: absolute;
-    top: 43px;
-    left: 108px;
-  }
-
-  .video .video-list-content-title {
-    color: #ffffff;
-    text-align: left;
-    font-size: 14px;
-    width: 280px;
-    position: absolute;
-    bottom: 5px;
-    left: 5px;
-  }
-
- .video-list-modal-font {
-    font-size: 14px;
-  }
-
+  @import url("../../assets/css/video.css");
 </style>
 <style>
   .ivu-tabs-bar {

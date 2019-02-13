@@ -83,33 +83,5 @@
   }
 </script>
 <style scoped>
-  .legend {
-    height: 191px;
-    width: 140px;
-    position: absolute;
-    cursor: pointer;
-    left: 378px;
-    top: 50px;
-    background-color: rgba(255, 255, 255, 0.8);
-    z-index: 999;
-  }
-
-  .legend .legend-title {
-    width: 100%;
-    height: 25px;
-    border-left: 2px solid #1B4C7B;
-    padding-left: 10px;
-    font-size: 16px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
-
-  .legend .legend-graph {
-    width: 40px;
-    height: 21px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  @import url("../../assets/css/legend.css");
 </style>

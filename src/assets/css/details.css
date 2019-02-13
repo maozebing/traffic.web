@@ -1,0 +1,27 @@
+.details {
+  height: 200px;
+  position: absolute;
+  cursor: pointer;
+  left: 378px;
+  right: 310px;
+  bottom: 0px;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 10000;
+}
+
+.details-content {
+  height: 150px;
+  overflow-y: auto
+}
+
+.details-content-table {
+  text-align: left;
+  padding: 5px;
+  color: #1B4C7B;
+  font-size: 14px;
+}
+
+.details-content-lable {
+  width: 70px;
+  vertical-align: text-top
+}
