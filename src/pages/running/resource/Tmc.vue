@@ -30,6 +30,7 @@
   import Bus from '../../../bus/bus'
   import {api_getTmcs} from '../../../axios/api/traffic_api'
 
+  let broadcast = require("../../../../static/images/broadcast.png")
   export default {
     components: {},
     data() {
@@ -56,6 +57,9 @@
               v.time = '前天'
             } else {
               v.time = '更早'
+            }
+            if (v.roadImage.length == 0) {
+              v.roadImage[0] = broadcast;
             }
           });
           //时间排序
