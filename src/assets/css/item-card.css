@@ -1,0 +1,96 @@
+.item-card {
+  height: 82px;
+  border: 1px solid #CBCEDC;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.item-card-title {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.g-high-road {
+  /*display: block;
+  float: left;*/
+  width: 50px;
+  height: 50px;
+  background-color: #24B234;
+  font-size: 17px;
+  color: #ffffff;
+}
+
+.s-high-road {
+  /*display: block;
+  float: left;*/
+  width: 50px;
+  height: 50px;
+  background-color: #E3B709;
+  font-size: 17px;
+  color: #ffffff
+}
+
+.g-road {
+  /*display: block;
+  float: left;*/
+  width: 50px;
+  height: 50px;
+  background-color: #09A3E3;
+  font-size: 17px;
+  color: #ffffff
+}
+
+.g-img {
+  /*display: block;
+  float: left;*/
+  width: 50px;
+  height: 50px;
+  /*background-color: #09A3E3;*/
+  /*font-size: 17px;*/
+  /*color: #ffffff*/
+}
+
+.item-card-content {
+  display: block;
+  float: left;
+  /*width: 268px;
+  height: 50px;*/
+  padding-left: 10px;
+}
+
+.item-card-content-title {
+  /*width: 258px;*/
+  height: 20px;
+}
+
+.item-card-content-title-p {
+  /*display: block;
+  float: left;
+  width: 218px;*/
+  height: 20px;
+  text-align: left;
+  font-size: 16px;
+  color: #1B4C7B;
+}
+
+.item-card-content-title-time {
+  /*display: block;
+  float: left;
+  width: 40px;*/
+  height: 20px;
+  text-align: right;
+  font-size: 16px;
+  color: #1B4C7B;
+}
+
+.item-card-content-remark {
+  /*width: 258px;*/
+  height: 40px;
+  text-align: left;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  font-size: 13px;
+}

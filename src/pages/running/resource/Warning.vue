@@ -1,22 +1,28 @@
 <template>
   <div class="warning" :style="{height: contentHeight+'px'}">
-    <div class="warning-content" v-for="(item ,index) in warningData"
+    <div class="item-card" v-for="(item ,index) in warningData"
          :style="{'marginTop': index==0?'0px':'10px'}"
          @click="warningClick(item)">
-      <img :src="item.roadImage[0]" class="g-road"/>
-      <div class="content">
-        <div class="content-title">
-          <div class="content-title-body">
-            {{item.roadoldid}}{{item.roadName}}
-          </div>
-          <div class="content-title-time">
-            {{item.time}}
-          </div>
-        </div>
-        <div class="content-remark">
+      <Row>
+        <Col span="4" class="item-card-title">
+        <img :src="item.roadImage[0]" class="g-img"/>
+        </Col>
+        <Col span="20" class="item-card-content">
+        <Row class="item-card-content-title">
+          <Col span="20" class="item-card-content-title-p">
+          {{item.roadoldid}}{{item.roadName}}
+          </Col>
+          <Col span="4" class="item-card-content-title-time">
+          {{item.time}}
+          </Col>
+        </Row>
+        <Row class="item-card-content-remark">
+          <Col span="24">
           {{item.highSpeedName}}
-        </div>
-      </div>
+          </Col>
+        </Row>
+        </Col>
+      </Row>
     </div>
   </div>
 </template>
@@ -82,90 +88,11 @@
   }
 </script>
 <style scoped>
+  @import url("../../../assets/css/item-card.css");
+
   .warning {
     padding: 0px 5px 0px 5px;
     height: calc(100%);
     overflow-y: auto;
-  }
-
-  .warning-content {
-    height: 72px;
-    border: 1px solid #CBCEDC;
-    border-radius: 10px;
-    padding: 10px;
-  }
-
-  .warning-content .g-high-road {
-    display: block;
-    float: left;
-    width: 50px;
-    height: 50px;
-    background-color: #24B234;
-    font-size: 17px;
-    color: #ffffff
-  }
-
-  .warning-content .s-high-road {
-    display: block;
-    float: left;
-    width: 50px;
-    height: 50px;
-    background-color: #E3B709;
-    font-size: 17px;
-    color: #ffffff
-  }
-
-  .warning-content .g-road {
-    display: block;
-    float: left;
-    width: 50px;
-    height: 50px;
-  / / background-color: #09A3E3;
-  / / font-size: 17 px;
-  / / color: #ffffff
-  }
-
-  .warning-content .content {
-    display: block;
-    float: left;
-    width: 278px;
-    height: 50px;
-    padding-left: 10px;
-  }
-
-  .warning-content .content .content-title {
-    width: 268px;
-    height: 30px;
-  }
-
-  .warning-content .content .content-title-body {
-    display: block;
-    float: left;
-    width: 228px;
-    height: 30px;
-    text-align: left;
-    font-size: 16px;
-    color: #1B4C7B;
-  }
-
-  .warning-content .content .content-title-time {
-    display: block;
-    float: left;
-    width: 40px;
-    height: 30px;
-    text-align: right;
-    font-size: 16px;
-    color: #1B4C7B;
-  }
-
-  .warning-content .content .content-remark {
-    width: 268px;
-    height: 20px;
-    text-align: left;
-    font-size: 13px;
-  }
-
-  .margin-top {
-    margin-top: 10px;
   }
 </style>

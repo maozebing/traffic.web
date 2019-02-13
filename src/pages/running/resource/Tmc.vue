@@ -1,22 +1,28 @@
 <template>
   <div class="tmc" :style="{height: contentHeight+'px'}">
-    <div class="tmc-content" v-for="(item ,index) in tmcData"
+    <div class="item-card" v-for="(item ,index) in tmcData"
          :style="{'marginTop': index==0?'0px':'10px'}"
          @click="tmcClick(item)">
-      <img :src="item.roadImage[0]" class="g-road"/>
-      <div class="content">
-        <div class="content-title">
-          <div class="content-title-body">
-            {{item.roadoldid}}{{item.roadName}}
-          </div>
-          <div class="content-title-time">
-            {{item.time}}
-          </div>
-        </div>
-        <div class="content-remark">
+      <Row>
+        <Col span="4" class="item-card-title">
+        <img :src="item.roadImage[0]" class="g-img"/>
+        </Col>
+        <Col span="20" class="item-card-content">
+        <Row class="item-card-content-title">
+          <Col span="20" class="item-card-content-title-p">
+          {{item.roadoldid}}{{item.roadName}}
+          </Col>
+          <Col span="4" class="item-card-content-title-time">
+          {{item.time}}
+          </Col>
+        </Row>
+        <Row class="item-card-content-remark">
+          <Col span="24">
           {{item.highSpeedName}}
-        </div>
-      </div>
+          </Col>
+        </Row>
+        </Col>
+      </Row>
     </div>
   </div>
 </template>
@@ -38,7 +44,7 @@
       },
       initData() {
         api_getTmcs({
-          pageIndex:1
+          pageIndex: 1
         }).then(res => {
           //格式化时间
           res.data.forEach(v => {
@@ -82,90 +88,11 @@
   }
 </script>
 <style scoped>
+  @import url("../../../assets/css/item-card.css");
+
   .tmc {
     padding: 0px 5px 0px 5px;
     height: calc(100%);
     overflow-y: auto;
-  }
-
-  .tmc-content {
-    height: 72px;
-    border: 1px solid #CBCEDC;
-    border-radius: 10px;
-    padding: 10px;
-  }
-
-  .tmc-content .g-high-road {
-    display: block;
-    float: left;
-    width: 50px;
-    height: 50px;
-    background-color: #24B234;
-    font-size: 17px;
-    color: #ffffff
-  }
-
-  .tmc-content .s-high-road {
-    display: block;
-    float: left;
-    width: 50px;
-    height: 50px;
-    background-color: #E3B709;
-    font-size: 17px;
-    color: #ffffff
-  }
-
-  .tmc-content .g-road {
-    display: block;
-    float: left;
-    width: 50px;
-    height: 50px;
-    //background-color: #09A3E3;
-    //font-size: 17px;
-    //color: #ffffff
-  }
-
-  .tmc-content .content {
-    display: block;
-    float: left;
-    width: 278px;
-    height: 50px;
-    padding-left: 10px;
-  }
-
-  .tmc-content .content .content-title {
-    width: 268px;
-    height: 30px;
-  }
-
-  .tmc-content .content .content-title-body {
-    display: block;
-    float: left;
-    width: 228px;
-    height: 30px;
-    text-align: left;
-    font-size: 16px;
-    color: #1B4C7B;
-  }
-
-  .tmc-content .content .content-title-time {
-    display: block;
-    float: left;
-    width: 40px;
-    height: 30px;
-    text-align: right;
-    font-size: 16px;
-    color: #1B4C7B;
-  }
-
-  .tmc-content .content .content-remark {
-    width: 268px;
-    height: 20px;
-    text-align: left;
-    font-size: 13px;
-  }
-
-  .margin-top {
-    margin-top: 10px;
   }
 </style>
