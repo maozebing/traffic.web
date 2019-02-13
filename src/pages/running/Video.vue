@@ -1,7 +1,7 @@
 <template>
   <div class="video">
-    <div class="video-control-button" title="视频列表" v-show="!showVideoList" @click="showVideoList=true"></div>
-    <div class="video-list" v-show="showVideoList">
+    <div class="video-control-button" title="视频列表" v-if="!showVideoList" @click="showVideoList=true"></div>
+    <div class="video-list" v-if="showVideoList">
       <Tabs type="card" class="video-list-card">
         <Tab-pane label="视频列表" class="video-list-card">
           <div class="video-list-content" :style="{height: contentHeight+'px'}">
@@ -38,7 +38,10 @@
         showVideoList: false,
         videoData: [],
         videoModal: false,
-        vidwoSelected: {}
+        vidwoSelected: {
+          name:'',
+          videoUri:''
+        }
       }
     },
     methods: {
@@ -71,7 +74,6 @@
         });
       },
       playVideo(item) {
-        console.log(item)
         this.videoModal = true;
         this.vidwoSelected = item;
       }

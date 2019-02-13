@@ -1,5 +1,5 @@
 <template>
-  <div class="details" v-show="showDetails">
+  <div class="details" v-if="showDetails">
     <Tabs type="card">
       <Tab-pane :label="tabLabel">
         <div class="details-content">
@@ -18,7 +18,6 @@
             </tr>
           </table>
         </div>
-
       </Tab-pane>
       <Button @click="closeClick" size="small" slot="extra">收起</Button>
     </Tabs>
