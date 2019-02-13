@@ -15,9 +15,10 @@
     box-shadow: 0px 4px 4px #88888860; /*opera或ie9*/
     -moz-box-shadow: 0px 4px 4px #88888860; /*firefox*/
     -webkit-box-shadow: 0px 4px 4px #88888860; /*webkit*/
-    display: flex;
+    /*display: flex;
+    float: left;
     justify-content: center;
-    align-items: center;
+    align-items: center;*/
   }
 
   .head-title {
@@ -28,6 +29,7 @@
     height: 40px;
     width: 400px;
     position: relative;
+    margin: auto;
   }
 
   .head-title-content {
