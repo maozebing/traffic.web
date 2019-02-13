@@ -22,10 +22,7 @@
       transfer>
       <div>
         <p class="video-list-modal-font">{{vidwoSelected.name}}</p>
-        <video :src="vidwoSelected.videoUri" width="100%" height="300" controls>
-          <!--<source src="https://gslwzxbucket.oss-cn-beijing.aliyuncs.com/news/video/20190212102221111111.mp4" type="video/mp4">-->
-          <!--<source :src="vidwoSelected.videoUri" type="video/mp4">-->
-        </video>
+        <video :src="vidwoSelected.videoUri" width="100%" height="300" controls autoplay></video>
       </div>
     </Modal>
   </div>
