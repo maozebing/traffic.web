@@ -1,0 +1,7 @@
+.running {
+  height: 100%;
+}
+
+.running-body {
+  height: calc(100% - 46px);
+}

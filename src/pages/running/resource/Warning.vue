@@ -88,5 +88,5 @@
   }
 </script>
 <style scoped>
-  @import url("../../../assets/css/resource.css");
+  @import url("../../../assets/css/running-resource.css");
 </style>

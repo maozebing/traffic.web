@@ -6,5 +6,5 @@
   </div>
 </template>
 <style scoped>
-  @import url("../../assets/css/head.css");
+  @import url("../../assets/css/running-head.css");
 </style>

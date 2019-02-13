@@ -89,7 +89,7 @@
   }
 </script>
 <style scoped>
-  @import url("../../assets/css/video.css");
+  @import url("../../assets/css/running-video.css");
 </style>
 <style>
   .ivu-tabs-bar {

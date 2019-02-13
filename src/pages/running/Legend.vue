@@ -83,5 +83,5 @@
   }
 </script>
 <style scoped>
-  @import url("../../assets/css/legend.css");
+  @import url("../../assets/css/running-legend.css");
 </style>

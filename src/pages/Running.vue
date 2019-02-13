@@ -34,13 +34,7 @@
   }
 </script>
 <style scoped>
-  .running {
-    height: 100%;
-  }
-
-  .running-body {
-    height: calc(100% - 46px);
-  }
+  @import url("../assets/css/running.css");
 </style>
 
 
