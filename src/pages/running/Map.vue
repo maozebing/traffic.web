@@ -64,6 +64,13 @@
         params.data.forEach(v => {
           if (v.longitude != null && v.latitude != null) {
             let marker = mapHelper.createMarker(v.longitude, v.latitude, image, v);
+            mapHelper.addMarkerEvent(marker, function (e) {
+              let markerData = {
+                type: params.type,
+                data: v
+              };
+              Bus.$emit("running_resource_marker_click", markerData);
+            });
             markers.push(marker);
           }
         });

@@ -94,6 +94,19 @@ class MapUtil {
   }
 
   /**
+   * 标识点击事件
+   * @param marker
+   * @param eventFun
+   * @returns {*}
+   */
+  addMarkerEvent(marker, eventFun) {
+    let fun = AMap.event.addListener(marker, 'click', function (e) {
+      eventFun(e);
+    });
+    return fun;
+  }
+
+  /**
    * 设置地图层级和中心点
    * @param map
    * @param zoom
