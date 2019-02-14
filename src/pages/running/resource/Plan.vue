@@ -51,13 +51,14 @@
       },
       initData() {
         api_getPlans({}).then(res => {
+          let _this = this;
           //格式化时间
           res.data.forEach(v => {
-            if (this.$moment(v.occtime) >= this.$moment().startOf('day')) {
-              v.time = this.$moment(v.occtime).format("HH:mm")
-            } else if (this.$moment(v.occtime) >= this.$moment().subtract(1, 'days').startOf('day')) {
+            if (_this.$moment(v.occtime) >= _this.$moment().startOf('day')) {
+              v.time = _this.$moment(v.occtime).format("HH:mm")
+            } else if (_this.$moment(v.occtime) >= _this.$moment().subtract(1, 'days').startOf('day')) {
               v.time = '昨天'
-            } else if (this.$moment(v.occtime) >= this.$moment().subtract(2, 'days').startOf('day')) {
+            } else if (_this.$moment(v.occtime) >= _this.$moment().subtract(2, 'days').startOf('day')) {
               v.time = '前天'
             } else {
               v.time = '更早'
@@ -65,7 +66,7 @@
           });
           //时间排序
           res.data.sort(function (a, b) {
-            return new Date(a.occtime) < new Date(b.occtime) ? 1 : -1;
+            return _this.$moment(a.occtime) < _this.$moment(b.occtime) ? 1 : -1;
           });
           //赋值
           this.planData = res.data;
