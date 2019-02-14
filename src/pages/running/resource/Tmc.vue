@@ -1,7 +1,6 @@
 <template>
   <div class="resource-page" :style="{height: contentHeight+'px'}">
     <div class="item-card" v-for="(item ,index) in tmcData"
-         :style="{'marginTop': index==0?'0px':'10px'}"
          @click="tmcClick(item)">
       <Row>
         <Col span="4" class="item-card-title">

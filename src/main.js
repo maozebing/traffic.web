@@ -8,6 +8,7 @@ import iView from 'iview'
 import 'iview/dist/styles/iview.css'
 import moment from 'moment'
 import constant from './common/constant/constant'
+import 'vue-nav-tabs/themes/vue-tabs.css'
 
 Vue.use(iView);
 Vue.prototype.$moment=moment;

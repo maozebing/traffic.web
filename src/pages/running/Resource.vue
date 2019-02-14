@@ -1,22 +1,23 @@
 <template>
   <div class="resource">
-    <Tabs type="card" class="resource-card">
-      <Tab-pane label="突发事件" class="resource-card">
+    <vue-tabs class="resource-card">
+      <v-tab title="突发事件" class="resource-card">
         <Event></Event>
-      </Tab-pane>
-      <Tab-pane label="道路施工" class="resource-card">
+      </v-tab>
+      <v-tab title="道路施工" class="resource-card">
         <Plan></Plan>
-      </Tab-pane>
-      <Tab-pane label="整点路况" class="resource-card">
+      </v-tab>
+      <v-tab title="整点路况" class="resource-card">
         <Tmc></Tmc>
-      </Tab-pane>
-      <Tab-pane label="预警信息" class="resource-card">
+      </v-tab>
+      <v-tab title="预警信息" class="resource-card">
         <Warning></Warning>
-      </Tab-pane>
-    </Tabs>
+      </v-tab>
+    </vue-tabs>
   </div>
 </template>
 <script>
+  import {VueTabs, VTab} from 'vue-nav-tabs'
   import Event from './resource/Event.vue'
   import Plan from './resource/Plan.vue'
   import Tmc from './resource/Tmc.vue'
@@ -24,7 +25,7 @@
 
   export default {
     components: {
-      Event, Plan, Tmc, Warning
+      VueTabs, VTab, Event, Plan, Tmc, Warning
     },
     data() {
       return {}
@@ -81,4 +82,31 @@
   .ivu-tabs-nav-container:focus .ivu-tabs-tab-focused {
     /*border-color: #57a3f3!important;*/
   }
+
+  .vue-tabs .nav-tabs > li.active > a, .vue-tabs .nav-tabs > li.active > a:hover, .vue-tabs .nav-tabs > li.active > a:focus {
+    color: #ffffff;
+    background-color: #1B4C7B;
+    border: 1px solid #1B4C7B !important;
+    cursor: default;
+  }
+
+  .vue-tabs .nav-tabs > li > a {
+    margin-right: 0 !important;
+    line-height: 1.42857;
+    border: 1px solid transparent;
+    border-radius: 0 !important;
+  }
+
+  .vue-tabs .nav > li > a {
+    position: relative;
+    display: block;
+    padding: 7px 21px !important;
+    height: 32px;
+  }
+
+  .vue-tabs .nav-tabs {
+    border-bottom: 1px solid #dddee1 !important;
+  }
+
+
 </style>
