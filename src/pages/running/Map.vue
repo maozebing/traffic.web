@@ -93,7 +93,7 @@
         } else {
           mapHelper.setZoomAndCenter(map, window.mapZoom, window.mapCenter);
         }
-        if (this.selectedMarker != null) {
+        /*if (this.selectedMarker != null) {
           mapHelper.removeAnimation(this.selectedMarker);
         }
         layer.eachOverlay(marker => {
@@ -102,14 +102,15 @@
             this.selectedMarker = marker;
             return
           }
-        });
+        });*/
       },
       //详细面板关闭事件
       detailsClose() {
-        if (this.selectedMarker != null) {
+        /*if (this.selectedMarker != null) {
           mapHelper.removeAnimation(this.selectedMarker);
           mapHelper.setZoomAndCenter(map, window.mapZoom, window.mapCenter);
-        }
+        }*/
+        mapHelper.setZoomAndCenter(map, window.mapZoom, window.mapCenter);
       }
     },
     //生命周期钩子函数
