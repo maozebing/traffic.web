@@ -56,36 +56,9 @@
 
 </style>
 <style>
-  .ivu-tabs-bar {
-    border-bottom: 1px solid #dddee1;
-    margin-bottom: 10px !important;
-  }
-
-  .ivu-tabs.ivu-tabs-card > .ivu-tabs-bar .ivu-tabs-tab {
-    margin: 0;
-    height: 31px;
-    padding: 5px 18px 4px;
-    border: 0 !important;
-    border-radius: 0 !important;
-    transition: all .3s ease-in-out;
-    background: #f8f8f9;
-  }
-
-  .ivu-tabs.ivu-tabs-card > .ivu-tabs-bar .ivu-tabs-tab-active {
-    height: 32px;
-    padding-bottom: 5px;
-    background: #1B4C7B;
-    transform: translateZ(0);
-    color: #ffffff;
-  }
-
-  .ivu-tabs-nav-container:focus .ivu-tabs-tab-focused {
-    /*border-color: #57a3f3!important;*/
-  }
-
   .vue-tabs .nav-tabs > li.active > a, .vue-tabs .nav-tabs > li.active > a:hover, .vue-tabs .nav-tabs > li.active > a:focus {
-    color: #ffffff;
-    background-color: #1B4C7B;
+    color: #ffffff !important;
+    background-color: #1B4C7B !important;
     border: 1px solid #1B4C7B !important;
     cursor: default;
   }
@@ -101,7 +74,7 @@
     position: relative;
     display: block;
     padding: 7px 21px !important;
-    height: 32px;
+    height: 32px !important;
   }
 
   .vue-tabs .nav-tabs {

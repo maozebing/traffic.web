@@ -95,14 +95,14 @@
 </style>
 <style>
   .ivu-tabs-bar {
-    border-bottom: 1px solid #dddee1;
+    border-bottom: 1px solid #dddee1 !important;
     margin-bottom: 10px !important;
   }
 
   .ivu-tabs.ivu-tabs-card > .ivu-tabs-bar .ivu-tabs-tab {
     margin: 0;
     height: 31px;
-    padding: 5px 18px 4px;
+    padding: 5px 18px 4px !important;
     border: 0 !important;
     border-radius: 0 !important;
     transition: all .3s ease-in-out;
@@ -112,18 +112,12 @@
   .ivu-tabs.ivu-tabs-card > .ivu-tabs-bar .ivu-tabs-tab-active {
     height: 32px;
     padding-bottom: 5px;
-    background: #1B4C7B;
+    background: #1B4C7B !important;
     transform: translateZ(0);
-    color: #ffffff;
+    color: #ffffff !important;
   }
 
   .ivu-tabs-nav-container:focus .ivu-tabs-tab-focused {
     /*border-color: #57a3f3!important;*/
-  }
-
-  .ivu-tabs-nav-right {
-    float: right;
-    margin-left: 5px;
-    margin-top: 3px;
   }
 </style>
