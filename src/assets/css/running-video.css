@@ -55,7 +55,8 @@
   width: 280px;
   position: absolute;
   bottom: 5px;
-  left: 5px;
+  left: 2px;
+  background: #96969699;
 }
 
 .video-list-modal-font {
