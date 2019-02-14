@@ -53,10 +53,10 @@
         let image;
         let layer;
         if (params.type == this.$constant.LAYER_TYPE.突发事件) {
-          image = "../../../static/images/marker_accident24.png";
+          image = "../../../static/images/icon_tufashijian.png";
           layer = eventLayer;
         } else {
-          image = "../../../static/images/marker_maintain24.png";
+          image = "../../../static/images/icon_shigong.png";
           layer = planLayer;
         }
 
