@@ -4,13 +4,13 @@
       <Tab-pane label="突发事件" class="resource-card">
         <Event></Event>
       </Tab-pane>
-      <Tab-pane label="道路施工">
+      <Tab-pane label="道路施工" class="resource-card">
         <Plan></Plan>
       </Tab-pane>
-      <Tab-pane label="整点路况">
+      <Tab-pane label="整点路况" class="resource-card">
         <Tmc></Tmc>
       </Tab-pane>
-      <Tab-pane label="预警信息">
+      <Tab-pane label="预警信息" class="resource-card">
         <Warning></Warning>
       </Tab-pane>
     </Tabs>
