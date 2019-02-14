@@ -48,7 +48,7 @@
         <Col span="8">
         <div class="legend-graph">
           <!--<Icon type="alert-circled" size="18" color="#FE4040"></Icon>-->
-          <img width="18px" height="18px" src="../../../static/images/icon_tufashijian.png"/>
+          <img width="18px" height="18px" src="http://app.gstscc.cn:8088/appIcon/mapPoint/icon_tufashijian.png"/>
         </div>
         </Col>
         <Col span="16">
@@ -59,7 +59,7 @@
         <Col span="8">
         <div class="legend-graph">
           <!--<Icon type="flag" size="18" color="#F1C600"></Icon>-->
-          <img width="18px" height="18px" src="../../../static/images/icon_shigong.png"/>
+          <img width="18px" height="18px" src="http://app.gstscc.cn:8088/appIcon/mapPoint/icon_shigong.png"/>
         </div>
         </Col>
         <Col span="16">
