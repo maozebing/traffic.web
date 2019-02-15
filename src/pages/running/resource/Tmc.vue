@@ -8,10 +8,10 @@
         </Col>
         <Col span="20" class="item-card-content">
         <Row class="item-card-content-title">
-          <Col span="20" class="item-card-content-title-p">
+          <Col span="16" class="item-card-content-title-p">
           {{item.roadoldid}}{{item.roadName}}
           </Col>
-          <Col span="4" class="item-card-content-title-time">
+          <Col span="8" class="item-card-content-title-time">
           {{item.time}}
           </Col>
         </Row>
@@ -49,7 +49,8 @@
           let _this = this;
           //格式化时间
           res.data.forEach(v => {
-            if (_this.$moment(v.occtime) >= _this.$moment().startOf('day')) {
+            v.time = _this.$moment(v.occtime).format("MM-DD HH:mm")
+            /*if (_this.$moment(v.occtime) >= _this.$moment().startOf('day')) {
               v.time = _this.$moment(v.occtime).format("HH:mm")
             } else if (_this.$moment(v.occtime) >= _this.$moment().subtract(1, 'days').startOf('day')) {
               v.time = '昨天'
@@ -57,7 +58,7 @@
               v.time = '前天'
             } else {
               v.time = '更早'
-            }
+            }*/
             if (v.roadImage.length == 0) {
               v.roadImage[0] = broadcast;
             }
