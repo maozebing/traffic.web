@@ -12,10 +12,6 @@
               <td>发生时间：</td>
               <td>{{detailsData.occtimeStr}}</td>
             </tr>
-            <tr>
-              <td>更新时间：</td>
-              <td>{{detailsData.updatetimeStr}}</td>
-            </tr>
           </table>
         </div>
       </Tab-pane>
@@ -60,7 +56,7 @@
 
         //格式化时间
         params.data.occtimeStr = _this.$moment(params.data.occtime).format("YYYY-MM-DD HH:mm:ss");
-        params.data.updatetimeStr = params.data.updatetime == null ? null : _this.$moment(params.data.updatetime).format("YYYY-MM-DD HH:mm:ss");
+        //params.data.updatetimeStr = params.data.updatetime == null ? null : _this.$moment(params.data.updatetime).format("YYYY-MM-DD HH:mm:ss");
 
         //赋值
         _this.detailsData = params.data;

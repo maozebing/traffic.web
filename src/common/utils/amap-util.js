@@ -94,6 +94,14 @@ class MapUtil {
   }
 
   /**
+   * 清除图层数据
+   * @param layer
+   */
+  clearMarkers(layer) {
+    layer.clearOverlays();
+  }
+
+  /**
    * 标识点击事件
    * @param marker
    * @param eventFun
